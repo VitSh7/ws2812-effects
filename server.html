@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Управление подсветкой</title>
+	<!--<link rel="stylesheet" href="style.css">-->
+	<style>
+		html, body, div, span, applet, object, iframe,
+		h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+		a, abbr, acronym, address, big, cite, code,
+		del, dfn, em, img, ins, kbd, q, s, samp,
+		small, strike, strong, sub, sup, tt, var,
+		b, u, i, center,
+		dl, dt, dd, ol, ul, li,
+		fieldset, form, label, legend,
+		table, caption, tbody, tfoot, thead, tr, th, td,
+		article, aside, canvas, details, embed, 
+		figure, figcaption, footer, header, hgroup, 
+		menu, nav, output, ruby, section, summary,
+		time, mark, audio, video {
+			margin: 0;
+			padding: 0;
+			border: 0;
+			font-size: 100%;
+			font: inherit;
+			vertical-align: baseline;
+		}
+		article, aside, details, figcaption, figure, 
+		footer, header, hgroup, menu, nav, section {
+			display: block;
+		}
+		body {
+			line-height: 1;
+		}
+		ol, ul {
+			list-style: none;
+		}
+		blockquote, q {
+			quotes: none;
+		}
+		blockquote:before, blockquote:after,
+		q:before, q:after {
+			content: '';
+			content: none;
+		}
+		table {
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+		
+		 html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+		main {
+			min-height: 100%;
+		}
+
+		.background {
+		  background-color: #AAF1AA;
+		  width: 100%;
+		  height: 100%;
+		  border: 4px double black;
+		}
+
+		.dropbtn {
+		  background-color: #4CAF50;
+		  color: white;
+		  padding: 16px;
+		  font-size: 200%;
+		  cursor: pointer;
+			width: 100%;
+			height: 15%;
+			text-align-last: center;
+		}
+		.topline {
+			width: inherit;
+			height: 15%;
+			background-color: #AA88FF;
+			color: white;
+			font-size: 250%;
+			display: flex;
+			align-items: center
+		}
+		
+		h1 {
+			width: inherit;
+			padding: 16px;
+			text-align: center;
+		}
+		
+		.line {
+			width: inherit;
+			height: 10%;
+			background-color: #4CAF80;
+			color: white;
+			font-size: 200%;
+			display: flex;
+			align-items: stretch;
+		}
+		
+		.input {
+			padding: 16px;
+			display: flex;
+			width: 60%;
+			height: auto;
+			border: 4px double black;
+			text-align: center;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			align-items: center;
+			justify-content: center;
+		}
+		
+		.parameters {
+			padding: 16px;
+			display: flex;
+			align-items: center;
+			width: 30%;
+			height: auto;
+			text-align: center;
+			border: 4px double black;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			justify-content: center;
+		}
+		
+		.parameters.value {
+			width: 10%;
+		}
+		
+		.color_line {
+			background-color: #008080;
+			padding: 16px;
+			display: flex;
+			align-items: center;
+			width: inherit;
+			height: auto;
+			text-align: center;
+			border: 4px double black;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+			justify-content: center;
+		}
+		
+		input {
+			width: 100%;
+		}
+
+		.dropdown:hover .dropbtn {
+		  background-color: #3e8e41;
+		}
+	</style>
+  </head>
+  <body>
+	<div class="background">
+		<div class="topline">
+			<h1>Управление подсветкой</h1>
+		</div>
+			<select name="list of modes" class="dropbtn" onchange="sendMode(this)">
+				<option value="all" selected>Выберите режим</option>
+				<option value="0">Выключен</option>
+				<option value="1">Статический цвет</option>
+				<option value="2">Блинк</option>
+				<option value="3">Блинк с рандомным цветом</option>
+				<option value="4">Плавный блинк</option>
+				<option value="5">Смена цвета сквозь спектр</option>
+				<option value="6">Циклическая радуга</option>
+				<option value="7">Плавный блинк сквозь спектр</option>
+				<option value="8">Рандомный пиксель моргает</option>
+				<option value="9">Светодиод бежит по кругу</option>
+				<option value="10">Рандомные пиксели моргают</option>
+				<option value="11">Рандомные пиксели плавно моргают</option>
+				<option value="12">Паровозик</option>
+				<option value="13">Вертикальный огонь</option>
+				<option value="14">Горизонтальный огонь</option>
+				<option value="15">Рандомный шум</option>
+				<option value="16">Светомузыка по громкости</option>
+				<option value="17">Радужная светомузыка по громкости</option>
+				<option value="18">Светомузыка по спектру</option>
+				<option value="19">Светомузыка рандомные пиксели</option>
+				<option value="20">Светомузыка по громкости со сверканием</option>
+				<option value="21">Светомузыка вертикальный огонь</option>
+				<option value="22">Светомузыка горизонтальный огонь</option>
+			</select>
+		<div class="line">
+			<div class="color_line" id="color_line"> <p>Текущий цвет</p> </div> 
+		</div>
+		<div class="line">
+			<div class="parameters"> <p>Скорость</p> </div>
+			<div class="input"> <input type="range" min="0" max="255" step="1" value="120" onChange="sendSpeed(this)" oninput="setSpeed(this)"> </div>
+			<div class="parameters value" id="speed"> <p>120</p> </div>
+		</div>
+		<div class="line">
+			<div class="parameters"> <p>Цвет</p> </div>
+			<div class="input"> <input id="hue_value" type="range" min="0" max="359" step="1" value="180" onChange="sendColor(this)" oninput="setColor(this)"> </div>
+			<div class="parameters value" id="color"> <p>180</p> </div>
+		</div>
+		<div class="line">
+			<div class="parameters"> <p>Насыщенность</p> </div>
+			<div class="input"> <input id="saturation_value" type="range" min="0" max="255" step="1" value="255" onChange="sendSaturation(this)" oninput="setColor(this)"> </div>
+			<div class="parameters value" id="saturation"> <p>255</p> </div>
+		</div>
+		<div class="line">
+			<div class="parameters"> <p>Яркость</p> </div>
+			<div class="input"> <input id="brightness_value" type="range" min="0" max="255" step="1" value="127" onChange="sendBrightness(this)" oninput="setColor(this)"> </div>
+			<div class="parameters value" id="brightness"> <p>127</p> </div>
+		</div>
+		<script>
+		
+		function sendMode(elem) {
+			var xhr = new XMLHttpRequest();
+			var params = "mode\r\n"+elem.value+"\r\n";
+			xhr.open("POST", "/setmode", true);
+			xhr.send(params);
+			/*xhr.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				alert(this.responseText);
+			}
+			}*/
+		}
+		
+		function sendSpeed(elem) {
+			var xhr = new XMLHttpRequest();
+			var params = "speed\r\n"+elem.value+"\r\n";
+			xhr.open("POST", "/setSpeed", true);
+			xhr.send(params);
+		}
+		
+		function sendBrightness(elem) {
+			var xhr = new XMLHttpRequest();
+			var params = "brightness\r\n"+elem.value+"\r\n";
+			xhr.open("POST", "/setBrightness", true);
+			xhr.send(params);
+		}
+		
+		function sendSaturation(elem) {
+			var xhr = new XMLHttpRequest();
+			var params = "saturation\r\n"+elem.value+"\r\n";
+			xhr.open("POST", "/setSaturation", true);
+			xhr.send(params);
+		}
+		
+		function sendColor(elem) {
+			var xhr = new XMLHttpRequest();
+			var params = "color\r\n"+elem.value+"\r\n";
+			xhr.open("POST", "/setColor", true);
+			xhr.send(params);
+		}
+		
+		function setSpeed(elem) {
+			document.getElementById("speed").textContent = elem.value;
+		}
+		
+		function setColor(elem) {
+			var hue = document.getElementById("hue_value").value;
+			var saturation = document.getElementById("saturation_value").value;
+			var brightness = document.getElementById("brightness_value").value;
+			var RGB = hsvToRgb(hue/359, saturation/255, brightness/255);
+			var rgb_color='#'+rgbToHex(RGB[0], RGB[1], RGB[2]);
+			document.getElementById("color_line").style.backgroundColor = rgb_color;
+			if (elem==document.getElementById("hue_value"))
+				document.getElementById("color").textContent = elem.value;
+			else if (elem==document.getElementById("saturation_value"))
+				document.getElementById("saturation").textContent = elem.value;
+			else if (elem==document.getElementById("brightness_value"))
+				document.getElementById("brightness").textContent = elem.value;
+		}
+		
+		function hsvToRgb(h, s, v){
+			var r, g, b;
+
+			var i = Math.floor(h * 6);
+			var f = h * 6 - i;
+			var p = v * (1 - s);
+			var q = v * (1 - f * s);
+			var t = v * (1 - (1 - f) * s);
+
+			switch(i % 6){
+				case 0: r = v, g = t, b = p; break;
+				case 1: r = q, g = v, b = p; break;
+				case 2: r = p, g = v, b = t; break;
+				case 3: r = p, g = q, b = v; break;
+				case 4: r = t, g = p, b = v; break;
+				case 5: r = v, g = p, b = q; break;
+			}
+
+			return [r * 255, g * 255, b * 255];
+		}
+		
+		function rgbToHex(r, g, b) {
+
+			var hex = [
+				pad2(Math.round(r).toString(16)),
+				pad2(Math.round(g).toString(16)),
+				pad2(Math.round(b).toString(16))
+			];
+
+			return hex.join("");
+		}
+		
+		function pad2(c) {
+			return c.length == 1 ? '0' + c : '' + c;
+		}
+		</script>
+	</div>
+ </body>
+</html>
