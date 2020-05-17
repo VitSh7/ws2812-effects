@@ -9,11 +9,8 @@ There are two folders, one is "Atmega328p code" with Atmel Studio 7 project file
 
 # Step-by-Step Instruction
 1. Download all files.
-2. First you need to flash your ESP board with new firmware. You can build firmware [here](https://nodemcu-build.com) or use file "ESP_firmware" in main directory. If you have decided build it yourself you need to add at least these modules:
-- Dashes work just as well
-- And if you have sub points, put two spaces before the dash or star:
-  - Like this
-  - And this
+2. First you need to flash your ESP board with new firmware. You can build firmware [here](https://nodemcu-build.com) or use file "ESP_firmware" in main directory. 
+- If you have decided build it yourself you need to add at least these modules:
   - bit
   - color utils
   - file
@@ -24,7 +21,6 @@ There are two folders, one is "Atmega328p code" with Atmel Studio 7 project file
   - UART
   - WIFI
   - WS2812
-
 After you have got the firmware it's time to flash it to the chip. I recommend to use NodeMCU-PyFlasher, you can download runnable exe file from [here](https://github.com/marcelstoer/nodemcu-pyflasher/releases) or build it [yourself](https://github.com/marcelstoer/nodemcu-pyflasher).
 3. Now you should change number of leds matching your strip and setup wifi connection. Open file settings.lua with ESPlorer or any editor you use and set appropriate settings. You need to configure "number_of_leds" matching your led strip and wifi parameters, such as name and password. You can also configure wether you want or not to use static ip by setting "static_ip" to true or false. ip, netmask and gateway are configured in the field "ip_config". I recommend to use static ip, because by each reboot of the ESP ip could change and it might be some problems with finding your device in local network. By the way after reboot when device is connected to net it sends ip in terminal, so you can see it, if your computer is connected to esp at that moment.
 4. Using avrdude or any other tool that could flash hex files to avr chips flash the hex from "Atmega328p code/Debug" to Arduino Nano.
