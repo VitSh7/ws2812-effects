@@ -32,6 +32,6 @@ After you have got the firmware it's time to flash it to the chip. I recommend t
 
 6. Turn on the power and input in browser ip of your device, here what the appeared page should look like.
 
-![Opera](https://github.com/Vitve4/ws2812-effects/images/Opera.png)
+![Opera](images/Opera.png)
 
-![Opera-mobile](https://github.com/Vitve4/ws2812-effects/images/Opera-mobile.png)
+![Opera-mobile](images/Opera-mobile.jpg)
