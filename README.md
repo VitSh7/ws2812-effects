@@ -1,13 +1,13 @@
 # ws2812-Effects
 This project implements great static and music effect at LED strip on chip ws2812b. There is used ESP8266 (Wemos D1 board) on NodeMCU as the main chip. Atmega328p (Arduino Nano V3) handles with audio processing and send data to ESP via I2C. All effects are controlled via webserver deployed on the ESP.
 
-# How To Use It
+## How To Use It
 If you are dev and want to implement something new or change something, go ahead and feel free to contact me. Any suggestions for improving the project are welcome. If you want just to repeat it you can find instruction below.
 
-# Project Structure
+## Project Structure
 There are two folders, one is "Atmega328p code" with Atmel Studio 7 project files and the other is "lua-scripts" with lua scripts and LFS image for ESP8266. In the main folder there is "server.html" file, which is the html page for the project.
 
-# Step-by-Step Instruction
+## Step-by-Step Instruction
 1. Download all files.
 2. First you need to flash your ESP board with new firmware. You can build firmware [here](https://nodemcu-build.com) or use file "ESP_firmware" in main directory. If you have decided build it yourself you need to add at least these modules:
   - bit
