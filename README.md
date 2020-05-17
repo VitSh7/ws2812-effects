@@ -9,8 +9,7 @@ There are two folders, one is "Atmega328p code" with Atmel Studio 7 project file
 
 # Step-by-Step Instruction
 1. Download all files.
-2. First you need to flash your ESP board with new firmware. You can build firmware [here](https://nodemcu-build.com) or use file "ESP_firmware" in main directory. 
-  - If you have decided build it yourself you need to add at least these modules:
+2. First you need to flash your ESP board with new firmware. You can build firmware [here](https://nodemcu-build.com) or use file "ESP_firmware" in main directory. If you have decided build it yourself you need to add at least these modules:
   - bit
   - color utils
   - file
